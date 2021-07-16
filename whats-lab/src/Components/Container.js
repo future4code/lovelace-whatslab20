@@ -12,7 +12,21 @@ const Tela = styled.div`
 // Componente onde irão aparecer as mensagens
 class Container extends React.Component {
   render() {
-    return <Tela></Tela>;
+    return (
+      <Tela>
+        {this.props.mensagens.map((mensagem) => {
+          return (
+            <div
+              key={mensagem.id}
+              onDoubleClick={() => this.props.onMessageDelete(mensagem.id)}
+            >
+              <p>{mensagem.nomeUsuario}</p>
+              <p>{mensagem.mensagem}</p>
+            </div>
+          );
+        })}
+      </Tela>
+    );
   }
 }
 

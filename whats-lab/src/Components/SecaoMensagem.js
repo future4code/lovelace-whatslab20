@@ -19,16 +19,24 @@ const Mensagem = styled.input`
 `;
 
 // Componente com os elementos de input de nome, mensagem e botão
-class SecaoMensagem extends React.Component {
+export class SecaoMensagem extends React.Component {
   render() {
     return (
-      <FormMensagem>
-        <Input placeholder="Usuário" />
-        <Mensagem placeholder="Mensagem" />
-        <button>Enviar</button>
+      <FormMensagem onSubmit={this.props.adicionaMensagem}>
+        <Input
+          required
+          value={this.props.valorInputNome}
+          onChange={this.props.onChangeInputNomeUsuario}
+          placeholder="Usuário"
+        />
+        <Mensagem
+          required
+          value={this.props.valorInputMensagem}
+          onChange={this.props.onChangeInputMensagem}
+          placeholder="Mensagem"
+        />
+        <button type="submit">Enviar</button>
       </FormMensagem>
     );
   }
 }
-
-export default SecaoMensagem;
