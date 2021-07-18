@@ -64,7 +64,7 @@ class App extends React.Component {
     console.log(this.state.mensagens);
 
     return (
-      <div>
+      <Display>
         <Container
           mensagens={this.state.mensagens}
           onMessageDelete={this.onMessageDelete}
@@ -76,9 +76,15 @@ class App extends React.Component {
           valorInputNome={this.state.valorInputNome}
           valorInputMensagem={this.state.valorInputMensagem}
         />
-      </div>
+      </Display>
     );
   }
 }
 
+const Display = styled.div`
+  background-color: #f0e7df;
+  max-width: 450px;
+  margin: 0 auto;
+  border-radius: 10px;
+`;
 export default App;
